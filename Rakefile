@@ -11,6 +11,8 @@ rsync_delete   = false
 rsync_args     = ""  # Any extra arguments to pass to rsync
 deploy_default = "s3"
 s3_bucket      = "www.anthonybell.us"
+github_user    = "abell25"
+github_repo    = "abell25.github.io"
 # This will be configured for you when you run config_deploy
 deploy_branch  = "gh-pages"
 
@@ -30,6 +32,21 @@ server_port     = "4000"      # port for preview server eg. localhost:4000
 if (/cygwin|mswin|mingw|bccwin|wince|emx/ =~ RUBY_PLATFORM) != nil
   puts '## Set the codepage to 65001 for Windows machines'
   `chcp 65001`
+end
+
+desc "Check-in my blog source-code"
+task :commit do |t, args|
+  #system "git pull https://github.com/#{github_user}/#{github_repo} master"
+  if args.message
+    msg = args.message
+  else
+    msg = get_stdin("Enter a message for your commit: ")
+  end
+  system "git add ."
+  system "git commit -m #{msg}"
+  system "git status"
+  abort("not pushing..") if ask("Do you want to push to github?", ['y', 'n'])
+  system "git push https://github.com/#{github_user}/#{github_repo} master"
 end
 
 desc "Deploy website via s3cmd"
