@@ -36,7 +36,7 @@ end
 
 desc "Check-in my blog source-code"
 task :commit do |t, args|
-  #system "git pull https://github.com/#{github_user}/#{github_repo} master"
+  system "git pull https://github.com/#{github_user}/#{github_repo} master"
   if args.message
     msg = args.message
   else
