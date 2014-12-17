@@ -45,8 +45,11 @@ task :commit do |t, args|
   system "git add ."
   system "git commit -m #{msg}"
   system "git status"
-  abort("not pushing..") if ask("Do you want to push to github?", ['y', 'n'])
-  system "git push https://github.com/#{github_user}/#{github_repo} master"
+  if ask("Do you want to push to github?", ['y', 'n']) == 'n'
+    abort("not pushing..")
+  else
+    system "git push https://github.com/#{github_user}/#{github_repo} master"
+  end
 end
 
 desc "Deploy website via s3cmd"
