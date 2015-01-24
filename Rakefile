@@ -51,8 +51,6 @@ task :commit do |t, args|
     puts "pushing to github!"
     #system "git push https://github.com/#{github_user}/#{github_repo} master"
     system "git push http://www.github.com/#{github_user}/#{github_repo}"
-    puts "type: git push http://www.github.com/#{github_user}/#{github_repo}"
-    puts "if it says 'everything up to date'"
   end
 end
 
