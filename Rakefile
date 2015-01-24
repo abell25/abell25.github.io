@@ -48,7 +48,11 @@ task :commit do |t, args|
   if ask("Do you want to push to github?", ['y', 'n']) == 'n'
     abort("not pushing..")
   else
-    system "git push https://github.com/#{github_user}/#{github_repo} master"
+    puts "pushing to github!"
+    #system "git push https://github.com/#{github_user}/#{github_repo} master"
+    system "git push http://www.github.com/#{github_user}/#{github_repo}"
+    puts "type: git push http://www.github.com/#{github_user}/#{github_repo}"
+    puts "if it says 'everything up to date'"
   end
 end
 
