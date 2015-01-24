@@ -16,4 +16,4 @@ Hi.  I have just set up my new blog.  My original blog was hosted on HostMonster
 
 This is a pretty nice framework so far.  You only have to set your information in a config file to get add-ons such as comments, a list of your github repositories, social media 'like/tweet/+1' buttons.  You also have configuration options on a per-post so you can disable comments on a specific post by setting `comments: true` to `false`.  
 
-I also like that the site will have very strong security since I don't actually have any server-side code running.  Security is something I was very cavalier about when I first started coding but now I think about more often.  Since your website is built from scratch on a local machine and deployed to servers as static content it is virtually impossible to hack it.
+Another benefit of a static website is security.  Since your website is built from scratch on a local machine and deployed to servers as static content it is virtually impossible to hack it.
