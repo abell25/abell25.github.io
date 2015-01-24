@@ -43,7 +43,7 @@ task :commit do |t, args|
     msg = get_stdin("Enter a message for your commit: ")
   end
   system "git add ."
-  system "git commit -m #{msg}"
+  system "git commit -m '#{msg}'"
   system "git status"
   if ask("Do you want to push to github?", ['y', 'n']) == 'n'
     abort("not pushing..")
